@@ -1,0 +1,3773 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <Forms>
+    <CETrainer Class="TTrainerForm" Encoding="Ascii85">=N!Ti,cp%1NlSbsaVD_Sbkk,K*3{rV07,AkTGix.RGVx%g}*4+BM8udpyg!Qugfa=PRIYybyfuli4;K%),{v1z/nH=i,gbSy?@l}jV;M}3CB4FK4N?r]N3^=I*!VY_Jdt}A-]D*^cofvY?@RldcWqGSn9u;Ja$u(--6Gm.EWiK;xJ^gn/q)lW%zg[az@[t-XovnKt,S+sQn*7$t5cn1ibS48aQN?5mKM90t}zU$l!E!9$[w1x^./Cu[CVyGoEZ%oN?r[%P8RX*SvzWyr[5;uZBMiFNPQWIK?OJAt(+Jctdg[1FblSf_.9yv$_,4;).CxRkGGY$dqXjra/iAO*[(M[bQmGB:kU1*@kaILybNrRh.d=EszP7H*2=e,bP;tMJQ]nijMW*u1w3!1TR9K0oP8?nWW^Hg/xy16oS#iUMPCnj-K_sZsT8jdcWK8l5Han+ZG{k*l{E:48s)7cZ-*CZ#]BWWI5^VGr{a#lz4)Ba3@c3(2j!7v:c]$IE*$L6kaIvSaKj056J3;*A?Xk(Xn)xZB@RoU?$/_jFmLY;CGF;Zq^!#,fj8@tf+/e:4=BX0yNJ=9Iv5;Bn=Oz(9s.23e}0g8dvg(HvpOb0X=o#M:ULi8KlB:;Lp{}^nL6EkbEOGSC]/Vq#=a*rHP5hB:+^LOTnr^s{X$9U9eKr;XnK$=0Q=T,kPQKE?QzqmJ-xtjc:eg]PqFPbepCBskEf,o7ECfQZQn^L8MCwgzQ9$pAkvz(i2QFo7Ccb.nH-.WN$L4poja^dZ6FuM/Lb1uyDauk%QJPxikR1a4R,ZRqLEpjE}(s$L:HSm#tqJntaEfhH-GH.O14^cOIDj2_XJ#^)e[H:EF$drv3,dCf}m3TD7kYbztH2?JfR8?v6c$?T#U}.,3L-c1n-MI_4=3QCu,!-RF4UonW6),h48j;J%?4IO8z,DR=[_z5Sf9[Yd*]uEO56[S.55^V?_Oc!ye$r/XzO(n8ha39k.2vM)cj).?_OM5aP(/Fom2aJvsGq!rPF3Q.5C.Vvo[3[kN8$w2+UKBDf7y5G.J?BW]r_9wU@3g2nF*%2I9mHNjv*2jW}wrbW7rWN]J</CETrainer>
+  </Forms>
+  <CheatEntries>
+    <CheatEntry>
+      <ID>9516</ID>
+      <Description>"Common Scripts"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+      <Color>FFFF80</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>10151</ID>
+          <Description>"Green = Legit"</Description>
+          <Color>00FF00</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10152</ID>
+          <Description>"Orange = Semi-Legit"</Description>
+          <Color>4080FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10153</ID>
+          <Description>"Red = Cheat"</Description>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10154</ID>
+          <Description>"------------------------------------------------------------------------------"</Description>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9517</ID>
+          <Description>"DNF "</Description>
+          <Color>00FF00</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+30AFD68) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rbx+00001A7C],#1
+
+originalcode:
+mov eax,[rbx+00001A7C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+30AFD68:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+30AFD68:
+mov eax,[rbx+00001A7C]
+//Alt: db 8B 83 7C 1A 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2834</ID>
+          <Description>"DNF (Instant)"</Description>
+          <Color>00FF00</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"NFS11Remastered.exe"+15A6AA)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+cmp dword ptr [rdx+00002108],03
+jne originalcode
+mov [rdx+00003BE8],02
+jmp exit
+originalcode:
+cmp dword ptr [rdx+00003BE8],00
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+15A6AA:
+jmp newmem
+nop 2
+returnhere:
+
+
+
+
+[DISABLE]
+dealloc(newmem)
+"NFS11Remastered.exe"+15A6AA:
+cmp dword ptr [rdx+00003BE8],00
+//Alt: db 83 BA E8 3B 00 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2304</ID>
+          <Description>"Mileage Mod"</Description>
+          <Color>00FF00</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+2463CD) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+00001BFC],(float)114514000
+originalcode:
+movss xmm0,[rax+00001BFC]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+2463CD:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+2463CD:
+movss xmm0,[rax+00001BFC]
+//Alt: db F3 0F 10 80 FC 1B 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9299</ID>
+          <Description>"HUD Toggle"</Description>
+          <Color>00FF00</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+1BC0E8) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [rbx+00000178],(int)0
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+1BC0E8:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+1BC0E8:
+mov [rbx+00000178],cl
+//Alt: db 88 8B 78 01 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2335</ID>
+          <Description>"No Traffic (SP)"</Description>
+          <Color>0080FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+1A8C08) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+nop
+andps xmm0,xmm10
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+1A8C08:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+1A8C08:
+addps xmm9,[r8]
+andps xmm0,xmm10
+//Alt: db 45 0F 58 08 41 0F 54 C2
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10163</ID>
+          <Description>"Slipstream toggle"</Description>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+"NFS11Remastered.exe"+1DC0E6:
+db 74 11
+
+"NFS11Remastered.exe"+1DC0F9:
+//movups xmm0,["NFS11Remastered.exe"+DE5990] //100% Slip Stream
+//movups xmm0,["NFS11Remastered.exe"+E043B0] //98%
+//movups xmm0,["NFS11Remastered.exe"+E04390] //95%
+//movups xmm0,["NFS11Remastered.exe"+E02130] //80%
+//movups xmm0,["NFS11Remastered.exe"+DE5980] //75%
+//movups xmm0,["NFS11Remastered.exe"+E04360] //71%
+//movups xmm0,["NFS11Remastered.exe"+E02100] //60%
+
+//Test so you can see there's a variable lmfao
+movups xmm0,["NFS11Remastered.exe"+E043B0] //98%
+nop
+
+[DISABLE]
+"NFS11Remastered.exe"+1DC0E6:
+db 74 16
+
+"NFS11Remastered.exe"+1DC0F9:
+movups xmm0,[rax]
+db EB 03 0F 57 C0
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>22544</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Deactivate</Action>
+              <Keys>
+                <Key>22545</Key>
+              </Keys>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>138</ID>
+          <Description>"Ghost Mode"</Description>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+465C23)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+ja NFS11Remastered.AK::GameLogic::FriendViewModel::RegisterBindingType+116685
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+465C23:
+jmp newmem
+nop
+returnhere:
+
+
+
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+465C23:
+jbe NFS11Remastered.AK::GameLogic::FriendViewModel::RegisterBindingType+116685
+//Alt: db 0F 86 3C 05 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>144</ID>
+          <Description>"Ghost Mode (No Walls)"</Description>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(collision,2048,"NFS11Remastered.exe"+58735C)
+registersymbol(collision)
+label(returnhere)
+
+collision:
+mov eax,#0      // Disables Traffic &amp; Object Collision
+mov [rcx+34],eax
+ret
+int 3
+jmp returnhere
+
+"NFS11Remastered.exe"+58735C:
+jmp collision
+returnhere:
+
+[DISABLE]
+dealloc(*)
+unregistersymbol(*)
+"NFS11Remastered.exe"+58735C:
+mov [rcx+34],eax
+ret
+int 3
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>139</ID>
+          <Description>"Anti Crash"</Description>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(crashHack,2048,"NFS11Remastered.exe"+295B4D3)
+registersymbol(crashHack)
+label(returnhere)
+
+crashHack:
+cmp r9d,00  // Disable = 0  Enable = 1
+je NFS11Remastered.exe+295B574
+jmp returnhere
+
+"NFS11Remastered.exe"+295B4D3:
+jmp crashHack
+nop 5
+returnhere:
+
+[DISABLE]
+dealloc(*)
+unregistersymbol(*)
+"NFS11Remastered.exe"+295B4D3:
+cmp r9d,01
+je NFS11Remastered.exe+295B574
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>101</ID>
+          <Description>"Turbo"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>0000FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>"NFS11Remastered.exe"+01296E30</Address>
+          <Offsets>
+            <Offset>f98</Offset>
+            <Offset>8</Offset>
+            <Offset>78</Offset>
+            <Offset>178</Offset>
+            <Offset>10</Offset>
+            <Offset>20</Offset>
+            <Offset>18</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>22531</Key>
+              </Keys>
+              <Value>10</Value>
+              <Description>10</Description>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>22544</Key>
+              </Keys>
+              <Value>0</Value>
+              <Description>5</Description>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>111</ID>
+          <Description>"Infinite Nitrous"</Description>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+2BB33A) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+
+//add [rbx+0C],0
+
+
+originalcode:
+//movss [rbx+0C],xmm1
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+2BB33A:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+2BB33A:
+movss [rbx+0C],xmm1
+//Alt: db F3 0F 11 4B 0C
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9518</ID>
+      <Description>"Weather/Time"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+      <Color>00FFFF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>10149</ID>
+          <Description>"Time"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+          <Color>8000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>8667</ID>
+              <Description>"Rate of Time"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>800080</Color>
+              <VariableType>Float</VariableType>
+              <Address>"NFS11Remastered.exe"+01298C10</Address>
+              <Offsets>
+                <Offset>129A8C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10125</ID>
+              <Description>"Time ID"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>8000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"NFS11Remastered.exe"+01298C10</Address>
+              <Offsets>
+                <Offset>129A80</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>10126</ID>
+                  <Description>"Early Morning"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC1E4) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3D0],(float)17000.0
+originalcode:
+movss xmm0,[rax+0001D3D0]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC1E4:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC1E4:
+movss xmm0,[rax+0001D3D0]
+//Alt: db F3 0F 10 80 D0 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10127</ID>
+                  <Description>"Morning"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC1E4) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3D0],(float)20000.0
+originalcode:
+movss xmm0,[rax+0001D3D0]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC1E4:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC1E4:
+movss xmm0,[rax+0001D3D0]
+//Alt: db F3 0F 10 80 D0 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10128</ID>
+                  <Description>"Noon"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC1E4) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3D0],(float)50000.0
+originalcode:
+movss xmm0,[rax+0001D3D0]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC1E4:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC1E4:
+movss xmm0,[rax+0001D3D0]
+//Alt: db F3 0F 10 80 D0 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10129</ID>
+                  <Description>"Afternoon"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC1E4) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3D0],(float)65000.0
+originalcode:
+movss xmm0,[rax+0001D3D0]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC1E4:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC1E4:
+movss xmm0,[rax+0001D3D0]
+//Alt: db F3 0F 10 80 D0 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10130</ID>
+                  <Description>"Evening"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC1E4) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3D0],(float)73000.0
+originalcode:
+movss xmm0,[rax+0001D3D0]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC1E4:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC1E4:
+movss xmm0,[rax+0001D3D0]
+//Alt: db F3 0F 10 80 D0 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10131</ID>
+                  <Description>"Night"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC1E4) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3D0],(float)80000.0
+originalcode:
+movss xmm0,[rax+0001D3D0]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC1E4:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC1E4:
+movss xmm0,[rax+0001D3D0]
+//Alt: db F3 0F 10 80 D0 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10132</ID>
+                  <Description>"Midnight"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC1E4) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3D0],(float)0.0
+originalcode:
+movss xmm0,[rax+0001D3D0]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC1E4:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC1E4:
+movss xmm0,[rax+0001D3D0]
+//Alt: db F3 0F 10 80 D0 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10147</ID>
+          <Description>"Weather"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+          <Color>FBA900</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>10134</ID>
+              <Description>"Main Weather ID"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>FBA900</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"NFS11Remastered.exe"+01298C10</Address>
+              <Offsets>
+                <Offset>129A94</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>10135</ID>
+                  <Description>"Sunny"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC364) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3E4],(int)0
+originalcode:
+mov eax,[rax+0001D3E4]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC364:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC364:
+mov eax,[rax+0001D3E4]
+//Alt: db 8B 80 E4 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10136</ID>
+                  <Description>"Sunny After Rain"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC364) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3E4],(int)1
+originalcode:
+mov eax,[rax+0001D3E4]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC364:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC364:
+mov eax,[rax+0001D3E4]
+//Alt: db 8B 80 E4 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10137</ID>
+                  <Description>"Sunny + Rain/Snow (Non-Wet Roads)"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC364) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3E4],(int)2
+originalcode:
+mov eax,[rax+0001D3E4]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC364:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC364:
+mov eax,[rax+0001D3E4]
+//Alt: db 8B 80 E4 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10138</ID>
+                  <Description>"Sunny + Rain/Snow (Wet Roads)"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC364) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3E4],(int)3
+originalcode:
+mov eax,[rax+0001D3E4]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC364:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC364:
+mov eax,[rax+0001D3E4]
+//Alt: db 8B 80 E4 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10139</ID>
+                  <Description>"Cloudy"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC364) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3E4],(int)8
+originalcode:
+mov eax,[rax+0001D3E4]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC364:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC364:
+mov eax,[rax+0001D3E4]
+//Alt: db 8B 80 E4 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10140</ID>
+                  <Description>"Cloudy (Wet Roads)"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC364) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3E4],(int)9
+originalcode:
+mov eax,[rax+0001D3E4]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC364:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC364:
+mov eax,[rax+0001D3E4]
+//Alt: db 8B 80 E4 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10141</ID>
+                  <Description>"Cloudy + Rain/Snow (Non-Wet Roads)"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC364) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3E4],(int)10
+originalcode:
+mov eax,[rax+0001D3E4]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC364:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC364:
+mov eax,[rax+0001D3E4]
+//Alt: db 8B 80 E4 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10142</ID>
+                  <Description>"Cloudy + Rain/Snow (Wet Roads)"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC364) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3E4],(int)11
+originalcode:
+mov eax,[rax+0001D3E4]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC364:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC364:
+mov eax,[rax+0001D3E4]
+//Alt: db 8B 80 E4 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10143</ID>
+                  <Description>"Thunderstorm"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC364) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3E4],(int)12
+originalcode:
+mov eax,[rax+0001D3E4]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC364:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC364:
+mov eax,[rax+0001D3E4]
+//Alt: db 8B 80 E4 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10144</ID>
+                  <Description>"Thunderstorm (Wet Roads)"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC364) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3E4],(int)13
+originalcode:
+mov eax,[rax+0001D3E4]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC364:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC364:
+mov eax,[rax+0001D3E4]
+//Alt: db 8B 80 E4 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10145</ID>
+                  <Description>"Thunderstorm + Rain (Non-Wet Roads)"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC364) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3E4],(int)14
+originalcode:
+mov eax,[rax+0001D3E4]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC364:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC364:
+mov eax,[rax+0001D3E4]
+//Alt: db 8B 80 E4 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10146</ID>
+                  <Description>"Thunderstorm + Rain (Wet Roads)"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3DC364) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+0001D3E4],(int)15
+originalcode:
+mov eax,[rax+0001D3E4]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3DC364:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3DC364:
+mov eax,[rax+0001D3E4]
+//Alt: db 8B 80 E4 D3 01 00
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10148</ID>
+          <Description>"Fog"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+          <Color>3737FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>10096</ID>
+              <Description>"Alternative Weather ID"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>3737FF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"NFS11Remastered.exe"+01298C10</Address>
+              <Offsets>
+                <Offset>12929C</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>10097</ID>
+                  <Description>"Note: Effect may vary on time of day and location"</Description>
+                  <Color>3737FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10098</ID>
+                  <Description>"Fog (Cloudy Weather is recommended)"</Description>
+                  <Color>3737FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>10099</ID>
+                      <Description>"Fog Weather"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)11
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10100</ID>
+                      <Description>"Fog 1"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)2
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10101</ID>
+                      <Description>"Fog 2"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)3
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10102</ID>
+                      <Description>"Fog 3"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)5
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10103</ID>
+                      <Description>"Fog 4"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)14
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10104</ID>
+                      <Description>"Fog 5"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)17
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10105</ID>
+                      <Description>"Fog 6"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)27
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10054</ID>
+                      <Description>"Fog Density"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3957F1) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [rbx+58],(float)2
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3957F1:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3957F1:
+movss [rbx+58],xmm2
+//Alt: db F3 0F 11 53 58
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10053</ID>
+                      <Description>"Fog Range"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+395824) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [rbx+5C],(float)5
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+395824:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+395824:
+movss [rbx+5C],xmm3
+//Alt: db F3 0F 11 5B 5C
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10106</ID>
+                  <Description>"Sunny (Sunny Weather is recommended)"</Description>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>10107</ID>
+                      <Description>"Autumn"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)4
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10108</ID>
+                      <Description>"Sunny 1"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)6
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10109</ID>
+                      <Description>"Sunny 2"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)26
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10110</ID>
+                  <Description>"Tropical"</Description>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>10111</ID>
+                      <Description>"Desert"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)25
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10112</ID>
+                      <Description>"Heatwave 1"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)18
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10113</ID>
+                      <Description>"Heatwave 2"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)1
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10114</ID>
+                      <Description>"Heatwave 3"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)23
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10115</ID>
+                      <Description>"Heatwave 4"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)24
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10116</ID>
+                      <Description>"Heatwave 5"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)21
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10117</ID>
+                  <Description>"Sunny and Cloudy (Fog can be used)"</Description>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>10118</ID>
+                      <Description>"Foggy/Clear 1"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)15
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10119</ID>
+                      <Description>"Foggy/Clear 2"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)19
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10120</ID>
+                      <Description>"Foggy/Clear 3"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)0
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10121</ID>
+                      <Description>"Polar Night 1"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)16
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>10122</ID>
+                      <Description>"Polar Night 2"</Description>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+3934BC) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rcx+00002B6C],(int)20
+originalcode:
+mov eax,[rcx+00002B6C]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+3934BC:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+3934BC:
+mov eax,[rcx+00002B6C]
+//Alt: db 8B 81 6C 2B 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10150</ID>
+      <Description>"Modding Data"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+      <Color>FFFF00</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>10156</ID>
+          <Description>"Colors"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+          <Color>FF8080</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2423</ID>
+              <Description>"Color"</Description>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>2433</ID>
+                  <Description>"Kind of color"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>"NFS11Remastered.exe"+01296B80</Address>
+                  <Offsets>
+                    <Offset>3E0</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1</ID>
+                  <Description>"color saturation"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>"NFS11Remastered.exe"+01296B80</Address>
+                  <Offsets>
+                    <Offset>3E4</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2</ID>
+                  <Description>"color brightness"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>"NFS11Remastered.exe"+01296B80</Address>
+                  <Offsets>
+                    <Offset>3E8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>9568</ID>
+                  <Description>"color material"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>"NFS11Remastered.exe"+01296B80</Address>
+                  <Offsets>
+                    <Offset>384</Offset>
+                  </Offsets>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>9569</ID>
+                      <Description>"0 gloss"</Description>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>9570</ID>
+                      <Description>"1 matt"</Description>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>9571</ID>
+                      <Description>"2 pearlescent"</Description>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>9572</ID>
+                      <Description>"3 Metal"</Description>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10157</ID>
+          <Description>"Event Info"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+          <Color>FF8080</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>8718</ID>
+              <Description>"Event ID[SP]"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"NFS11Remastered.exe"+01279210</Address>
+              <Offsets>
+                <Offset>182C</Offset>
+                <Offset>4310</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>8713</ID>
+                  <Description>"Spawn id"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>"NFS11Remastered.exe"+012B82D0</Address>
+                  <Offsets>
+                    <Offset>F7F4</Offset>
+                    <Offset>120</Offset>
+                    <Offset>48</Offset>
+                    <Offset>20</Offset>
+                    <Offset>1B28</Offset>
+                    <Offset>250</Offset>
+                    <Offset>188</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>2845</ID>
+                  <Description>"Event ID [MP]"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>"NFS11Remastered.exe"+012BBAA8</Address>
+                  <Offsets>
+                    <Offset>C61C</Offset>
+                    <Offset>8</Offset>
+                    <Offset>0</Offset>
+                    <Offset>30</Offset>
+                    <Offset>0</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10155</ID>
+      <Description>"Car Color"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+      <Color>FFFF00</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>10160</ID>
+          <Description>"Static Color"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+          <Color>80FF00</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>10162</ID>
+              <Description>"Vantablack (2 or 3)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"NFS11Remastered.exe"+01296B80</Address>
+              <Offsets>
+                <Offset>384</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2420</ID>
+              <Description>"Volcano Orange"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.1682693958 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.02842603996
+mov [r15+00000118],(float)0.002731743036
+mov [r15+00000120],(float)0.7758222222
+mov [r15+00000124],(float)0.2158605009
+mov [r15+00000128],(float)0
+mov [r15+000001E0],(float)3.60401392
+mov [r15+000001E4],(float)1
+mov [r15+000001E8],(float)132.4347992
+mov [r15+000001F4],(float)10.78987503
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2419</ID>
+              <Description>"Mclaren Orange"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.6938716769 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.1499598026
+mov [r15+00000118],(float)0
+mov [r15+00000120],(float)1
+mov [r15+00000124],(float)0.2122308016
+mov [r15+00000128],(float)0
+mov [r15+000001E0],(float)0.7105147243
+mov [r15+000001E4],(float)1
+mov [r15+000001E8],(float)86.48551178
+mov [r15+000001F4],(float)9.519979477
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2418</ID>
+              <Description>"Black Hematite"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.002124689054 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.002124689054
+mov [r15+00000118],(float)0.002124689054
+mov [r15+00000120],(float)0.003676506924
+mov [r15+00000124],(float)0.003676506924
+mov [r15+00000128],(float)0.003676506924
+mov [r15+000001E0],(float)0.200000003
+mov [r15+000001E4],(float)1
+mov [r15+000001E8],(float)5.268126965
+mov [r15+000001F4],(float)21.86589813
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2415</ID>
+              <Description>"Vered Ithaca"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.2158605009 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.3419143856
+mov [r15+00000118],(float)0.02732088976
+mov [r15+00000120],(float)0.4019778073
+mov [r15+00000124],(float)0.644479692
+mov [r15+00000128],(float)0.04666509107
+mov [r15+000001E0],(float)1.569077969
+mov [r15+000001E4],(float)0.8000000119
+mov [r15+000001E8],(float)80
+mov [r15+000001F4],(float)2.5
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2416</ID>
+              <Description>"Ultimate Opal Black"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.004776952788 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.002428215928
+mov [r15+00000118],(float)0.009721217677
+mov [r15+00000120],(float)0.06847816706
+mov [r15+00000124],(float)0.01599629037
+mov [r15+00000128],(float)0.005605392158
+mov [r15+000001E0],(float)3.517750025
+mov [r15+000001E4],(float)0.5888186097
+mov [r15+000001E8],(float)50.59420013
+mov [r15+000001F4],(float)60.09769821
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2417</ID>
+              <Description>"Viper Snakeskin Pearl"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.2462013066 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.7230551243
+mov [r15+00000118],(float)0.1070230976
+mov [r15+00000120],(float)0.3712376952
+mov [r15+00000124],(float)0.8227856755
+mov [r15+00000128],(float)0.1247718036
+mov [r15+000001E0],(float)0.5208026767
+mov [r15+000001E4],(float)0.2284341007
+mov [r15+000001E8],(float)11.07971954
+mov [r15+000001F4],(float)23.45326805
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2421</ID>
+              <Description>"Green"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.00303526991 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.03310476989
+mov [r15+00000118],(float)0.02415763028
+mov [r15+00000120],(float)0.009134058841
+mov [r15+00000124],(float)0.194617793
+mov [r15+00000128],(float)0.0998987332
+mov [r15+000001E0],(float)1.218145967
+mov [r15+000001E4],(float)0.5500000119
+mov [r15+000001E8],(float)50.59420013
+mov [r15+000001F4],(float)17.87368774
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2408</ID>
+              <Description>"Platinum Metallic"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.2874408066 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.2422810942
+mov [r15+00000118],(float)0.1878208071
+mov [r15+00000120],(float)0.327778101
+mov [r15+00000124],(float)0.3049873114
+mov [r15+00000128],(float)0.2541520894
+mov [r15+000001E0],(float)0.6000000238
+mov [r15+000001E4],(float)0.6000000238
+mov [r15+000001E8],(float)30
+mov [r15+000001F4],(float)10
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2410</ID>
+              <Description>"Mojave Metallic"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.04231141135 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.03071344085
+mov [r15+00000118],(float)0.02315337025
+mov [r15+00000120],(float)0.2122308016
+mov [r15+00000124],(float)0.1651321948
+mov [r15+00000128],(float)0.1301365048
+mov [r15+000001E0],(float)5
+mov [r15+000001E4],(float)0.5888186097
+mov [r15+000001E8],(float)18.15943909
+mov [r15+000001F4],(float)36.92211151
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2397</ID>
+              <Description>"Ruby Red Metallic"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.1559264958 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.002428215928
+mov [r15+00000118],(float)0.01520850975
+mov [r15+00000120],(float)0.327778101
+mov [r15+00000124],(float)0.002124689054
+mov [r15+00000128],(float)0.0168073792
+mov [r15+000001E0],(float)4
+mov [r15+000001E4],(float)1
+mov [r15+000001E8],(float)39.239151
+mov [r15+000001F4],(float)45
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2409</ID>
+              <Description>"Cream White"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.4910208881 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.4735315144
+mov [r15+00000118],(float)0.3662526011
+mov [r15+00000120],(float)0.9473065138
+mov [r15+00000124],(float)0.9130985737
+mov [r15+00000128],(float)0.7083758116
+mov [r15+000001E0],(float)0.200000003
+mov [r15+000001E4],(float)0.8500000238
+mov [r15+000001E8],(float)5
+mov [r15+000001F4],(float)0.349999994
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2414</ID>
+              <Description>"White"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)1 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)1
+mov [r15+00000118],(float)1
+mov [r15+00000120],(float)1
+mov [r15+00000124],(float)1
+mov [r15+00000128],(float)1
+mov [r15+000001E0],(float)0.03999999911
+mov [r15+000001E4],(float)0.5
+mov [r15+000001E8],(float)1000
+mov [r15+000001F4],(float)1000
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2422</ID>
+              <Description>"Azure Blue"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.01032982022 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.01228648983
+mov [r15+00000118],(float)0.1356333047
+mov [r15+00000120],(float)0.01161224023
+mov [r15+00000124],(float)0.0168073792
+mov [r15+00000128],(float)0.7379103899
+mov [r15+000001E0],(float)5
+mov [r15+000001E4],(float)0.5888186097
+mov [r15+000001E8],(float)50.59420013
+mov [r15+000001F4],(float)8.032001495
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2411</ID>
+              <Description>"Blu Oceano"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.01938235946 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.03560131043
+mov [r15+00000118],(float)0.07227185369
+mov [r15+00000120],(float)0.03071344085
+mov [r15+00000124],(float)0.05780543014
+mov [r15+00000128],(float)0.1247718036
+mov [r15+000001E0],(float)1.5
+mov [r15+000001E4],(float)0.6499999762
+mov [r15+000001E8],(float)20
+mov [r15+000001F4],(float)2
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2412</ID>
+              <Description>"Plum Crazy"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.06480327249
+mov [r15+00000111],(float)-1.333617303E16
+mov [r15+00000112],(float)-2.052321875E-35
+mov [r15+00000113],(float)-5.279549951E-29 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.0176419504
+mov [r15+00000118],(float)0.2383975983
+mov [r15+0000011C],(float)1
+mov [r15+00000120],(float)0.09305897355
+mov [r15+00000124],(float)0.02315337025
+mov [r15+00000128],(float)0.4396572113
+mov [r15+0000012C],(float)1
+mov [r15+00000130],(float)0.06480327249
+mov [r15+00000131],(float)-1.333617303E16
+mov [r15+00000132],(float)-2.052321875E-35
+mov [r15+00000133],(float)-5.279549951E-29
+mov [r15+00000134],(float)0.0176419504
+mov [r15+00000138],(float)0.2383975983
+mov [r15+0000013C],(float)1
+mov [r15+00000140],(float)0.09305897355
+mov [r15+00000144],(float)0.02315337025
+mov [r15+00000148],(float)0.4396572113
+mov [r15+0000014C],(float)1
+mov [r15+00000180],(float)0
+mov [r15+00000194],(float)0.25
+mov [r15+000001A0],(float)-0.1400000006
+mov [r15+000001A4],(float)0.200000003
+mov [r15+000001AC],(float)0
+mov [r15+000001B4],(float)2
+mov [r15+000001B8],(float)1
+mov [r15+000001C0],(float)0.01499999966
+mov [r15+000001C4],(float)0.6000000238
+mov [r15+000001C8],(float)3.5
+mov [r15+000001CC],(float)0
+mov [r15+000001D4],(float)0.25
+mov [r15+000001D8],(float)20
+mov [r15+000001DC],(float)0.200000003
+mov [r15+000001E0],(float)1.600000024
+mov [r15+000001E4],(float)0.6750000119
+mov [r15+000001E8],(float)50.59420013
+mov [r15+000001EC],(float)0.9980000257
+mov [r15+000001F0],(float)0
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2413</ID>
+              <Description>"Speed Yellow"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+CD4FF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [r15+00000110],(float)0.7605245113 //对照1~10的地址依次填数据
+mov [r15+00000114],(float)0.4793201983
+mov [r15+00000118],(float)0.0006070539821
+mov [r15+00000120],(float)0.9822505713
+mov [r15+00000124],(float)0.6172065735
+mov [r15+00000128],(float)0.000303526991
+mov [r15+000001E0],(float)0.0700000003
+mov [r15+000001E4],(float)1
+mov [r15+000001E8],(float)317.9346924
+mov [r15+000001F4],(float)2.5
+
+originalcode:
+movups xmm0,[r15+00000110]
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+CD4FF:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+CD4FF:
+movups xmm0,[r15+00000110]
+//Alt: db 41 0F 10 87 10 01 00 00
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10159</ID>
+          <Description>"RGB Scripts/Flashing Lights"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+          <Color>80FF00</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>10161</ID>
+              <Description>"RGB Scripts"</Description>
+              <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>8</ID>
+                  <Description>"RGB Short"</Description>
+                  <Color>F385D5</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+{$Lua}
+
+function CheckAndAdjust(sender)
+  local IG_HUE=readFloat("[NFS11Remastered.exe+01296B80]+3E0")
+  local IG_Saturation=readFloat("[NFS11Remastered.exe+01296B80]+3E4")
+  local IG_Brightness=readFloat("[NFS11Remastered.exe+01296B80]+3E8")
+  --split
+  if (IG_HUE &gt; 1 ) then
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E0", 0)
+  else
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E0", IG_HUE+0.01)
+  end
+  --split
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 1)
+timer_onTimer(t, CheckAndAdjust)
+timer_setEnabled(t, true)
+
+ [DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+{$Lua}
+t.destroy();
+t=nil
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>6</ID>
+                  <Description>"RGB [Ugly script]"</Description>
+                  <Color>F385D5</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{$LUA}
+if syntaxcheck then return end
+function randomVal(timer)
+  local addr = getAddressSafe("randomValues")
+  hue = hue or 0
+  if addr then
+    hue = hue - 0.003
+    if hue &lt; 0.001 then
+      hue = 1
+    end
+    writeFloat(addr, hue)
+    writeFloat(addr+4, 1)
+    writeFloat(addr+8, 1)
+  end
+end
+
+function start_process()
+  randomValueTimer = randomValueTimer or createTimer()
+  randomValueTimer.Interval = 1 -- 200 ms enough?
+  randomValueTimer.OnTimer = function()
+    randomVal()
+  end
+end
+
+function on_close()
+  randomValueTimer.Interval = 0
+  randomValueTimer.destroy()
+  randomValueTimer = nil
+end
+{$ASM}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+1E8175)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+cmp [rdi+1808],0 // check if localplayer
+jne originalcode
+movups xmm8,[randomValues] // move the random color value
+movups [rdi+240],xmm8 // overwrite color struct for player
+jmp exit
+
+originalcode:
+movups xmm8,[rdi+00000240]
+
+exit:
+jmp returnhere
+
+randomValues:
+dd (float)1
+dd (float)1
+dd (float)1
+dd 0
+registersymbol(randomValues)
+
+
+"NFS11Remastered.exe"+1E8175:
+jmp newmem
+nop 3
+returnhere:
+
+{$LUA}
+start_process()
+{$ASM}
+[DISABLE]
+unregistersymbol(randomValues)
+dealloc(newmem)
+"NFS11Remastered.exe"+1E8175:
+movups xmm8,[rdi+00000240]
+//Alt: db 44 0F 10 87 40 02 00 00
+{$LUA}
+on_close()
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>126</ID>
+              <Description>"Color Flashes"</Description>
+              <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+              <Color>FFFF00</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>4</ID>
+                  <Description>"Dark Blue - Purple"</Description>
+                  <Color>F385D5</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{$LUA}
+if syntaxcheck then return end
+function randomVal(timer)
+  local addr = getAddressSafe("randomValues")
+  hue = hue or 0
+  if addr then
+    hue = hue - 0.001
+    if hue &lt; 0.67 then
+      hue = 0.7
+    end
+    writeFloat(addr, hue)
+    writeFloat(addr+4, 1)
+    writeFloat(addr+8, 1)
+  end
+end
+
+function start_process()
+  randomValueTimer = randomValueTimer or createTimer()
+  randomValueTimer.Interval = 1 -- 200 ms enough?
+  randomValueTimer.OnTimer = function()
+    randomVal()
+  end
+end
+
+function on_close()
+  randomValueTimer.Interval = 0
+  randomValueTimer.destroy()
+  randomValueTimer = nil
+end
+{$ASM}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+1E8175)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+cmp [rdi+1808],0 // check if localplayer
+jne originalcode
+movups xmm8,[randomValues] // move the random color value
+movups [rdi+240],xmm8 // overwrite color struct for player
+jmp exit
+
+originalcode:
+movups xmm8,[rdi+00000240]
+
+exit:
+jmp returnhere
+
+randomValues:
+dd (float)1
+dd (float)1
+dd (float)1
+dd 0
+registersymbol(randomValues)
+
+
+"NFS11Remastered.exe"+1E8175:
+jmp newmem
+nop 3
+returnhere:
+
+{$LUA}
+start_process()
+{$ASM}
+[DISABLE]
+unregistersymbol(randomValues)
+dealloc(newmem)
+"NFS11Remastered.exe"+1E8175:
+movups xmm8,[rdi+00000240]
+//Alt: db 44 0F 10 87 40 02 00 00
+{$LUA}
+on_close()
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>9</ID>
+                  <Description>"Red - Black"</Description>
+                  <Color>F385D5</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+{$Lua}
+
+function CheckAndAdjust(sender)
+  local IG_HUE=readFloat("[NFS11Remastered.exe+01296B80]+3E0")
+  local IG_Saturation=readFloat("[NFS11Remastered.exe+01296B80]+3E4")
+  local IG_Brightness=readFloat("[NFS11Remastered.exe+01296B80]+3E8")
+  --split
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E4", 1)
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E0", 1)
+  if (IG_HUE &gt; 0.99 ) then
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E8", IG_Brightness - 0.01)
+  if (IG_Brightness &lt; 0.001) then
+  end
+  end
+  --split
+end
+t=createTimer(nil)
+timer_setInterval(t, 1)
+timer_onTimer(t, CheckAndAdjust)
+timer_setEnabled(t, true)
+
+ [DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+{$Lua}
+t.destroy();
+t=nil
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>11</ID>
+                  <Description>"Blue - Black"</Description>
+                  <Color>F385D5</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+{$Lua}
+
+function CheckAndAdjust(sender)
+  local IG_HUE=readFloat("[NFS11Remastered.exe+01296B80]+3E0")
+  local IG_Saturation=readFloat("[NFS11Remastered.exe+01296B80]+3E4")
+  local IG_Brightness=readFloat("[NFS11Remastered.exe+01296B80]+3E8")
+  --split
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E4", 1)
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E0", 0.67)
+  if (IG_HUE &gt; 0.66 ) then
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E8", IG_Brightness - 0.004)
+  if (IG_Brightness &lt; 0.001) then
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E8", 1)
+  end
+  end
+  --split
+end
+t=createTimer(nil)
+timer_setInterval(t, 1)
+timer_onTimer(t, CheckAndAdjust)
+timer_setEnabled(t, true)
+
+ [DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+{$Lua}
+t.destroy();
+t=nil
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13</ID>
+                  <Description>"Yellow - Black "</Description>
+                  <Color>F385D5</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+{$Lua}
+
+function CheckAndAdjust(sender)
+  local IG_HUE=readFloat("[NFS11Remastered.exe+01296B80]+3E0")
+  local IG_Saturation=readFloat("[NFS11Remastered.exe+01296B80]+3E4")
+  local IG_Brightness=readFloat("[NFS11Remastered.exe+01296B80]+3E8")
+  --split
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E4", 1)
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E0", 0.20)
+  if (IG_HUE &gt; 0.19 ) then
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E8", IG_Brightness - 0.01)
+  if (IG_Brightness &lt; 0.001) then
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E8", 1)
+  end
+  end
+  --split
+end
+t=createTimer(nil)
+timer_setInterval(t, 1)
+timer_onTimer(t, CheckAndAdjust)
+timer_setEnabled(t, true)
+
+ [DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+{$Lua}
+t.destroy();
+t=nil
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12</ID>
+                  <Description>"Black - White"</Description>
+                  <Color>F385D5</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+{$Lua}
+
+function CheckAndAdjust(sender)
+  local IG_HUE=readFloat("[NFS11Remastered.exe+01296B80]+3E0")
+  local IG_Saturation=readFloat("[NFS11Remastered.exe+01296B80]+3E4")
+  local IG_Brightness=readFloat("[NFS11Remastered.exe+01296B80]+3E8")
+  --split
+  if (IG_Brightness &lt; 0 ) then
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E8", 1)
+  else
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E8", IG_Brightness-0.01)
+  end
+  --split
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 1)
+timer_onTimer(t, CheckAndAdjust)
+timer_setEnabled(t, true)
+
+ [DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+{$Lua}
+t.destroy();
+t=nil
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>14</ID>
+                  <Description>"Red [COLOR RESET]"</Description>
+                  <Color>F385D5</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+{$Lua}
+
+function CheckAndAdjust(sender)
+  local IG_HUE=readFloat("[NFS11Remastered.exe+01296B80]+3E0")
+  local IG_Saturation=readFloat("[NFS11Remastered.exe+01296B80]+3E4")
+  local IG_Brightness=readFloat("[NFS11Remastered.exe+01296B80]+3E8")
+  --split
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E0", 1)
+  --split
+end
+t=createTimer(nil)
+timer_setInterval(t, 1)
+timer_onTimer(t, CheckAndAdjust)
+timer_setEnabled(t, true)
+
+ [DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+{$Lua}
+t.destroy();
+t=nil
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17</ID>
+                  <Description>"Blue  [COLOR RESET]"</Description>
+                  <Color>F385D5</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+{$Lua}
+
+function CheckAndAdjust(sender)
+  local IG_HUE=readFloat("[NFS11Remastered.exe+01296B80]+3E0")
+  local IG_Saturation=readFloat("[NFS11Remastered.exe+01296B80]+3E4")
+  local IG_Brightness=readFloat("[NFS11Remastered.exe+01296B80]+3E8")
+  --split
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E0", 0.65)
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E4", 1)
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E8", 1)
+  --split
+end
+t=createTimer(nil)
+timer_setInterval(t, 1)
+timer_onTimer(t, CheckAndAdjust)
+timer_setEnabled(t, true)
+
+ [DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+{$Lua}
+t.destroy();
+t=nil
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>135</ID>
+                  <Description>"White [COLOR RESET]"</Description>
+                  <Color>F385D5</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+{$Lua}
+
+function CheckAndAdjust(sender)
+  local IG_HUE=readFloat("[NFS11Remastered.exe+01296B80]+3E0")
+  local IG_Saturation=readFloat("[NFS11Remastered.exe+01296B80]+3E4")
+  local IG_Brightness=readFloat("[NFS11Remastered.exe+01296B80]+3E8")
+  --split
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E0", 1)
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E4", 0)
+  writeFloat("[NFS11Remastered.exe+01296B80]+3E8", 1)
+  --split
+end
+t=createTimer(nil)
+timer_setInterval(t, 1)
+timer_onTimer(t, CheckAndAdjust)
+timer_setEnabled(t, true)
+
+ [DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+{$Lua}
+t.destroy();
+t=nil
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>40</ID>
+      <Description>"Weapon Cheats"</Description>
+      <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <Color>0000FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>121</ID>
+          <Description>"Spikes cheat"</Description>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NFS11Remastered.exe"+259DC0) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//movss [rcx+000003D4],xmm1
+
+exit:
+jmp returnhere
+
+"NFS11Remastered.exe"+259DC0:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NFS11Remastered.exe"+259DC0:
+movss [rcx+000003D4],xmm1
+//Alt: db F3 0F 11 89 D4 03 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>130</ID>
+          <Description>"Racer"</Description>
+          <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <Color>4080FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>122</ID>
+              <Description>"EMP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>00FFFF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Activation64.dll"+0014B2A8</Address>
+              <Offsets>
+                <Offset>BFC</Offset>
+                <Offset>8</Offset>
+                <Offset>378</Offset>
+                <Offset>18</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>123</ID>
+              <Description>"Jammers"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>00FFFF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Activation64.dll"+0014B2A8</Address>
+              <Offsets>
+                <Offset>5E4</Offset>
+                <Offset>310</Offset>
+                <Offset>C8</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>124</ID>
+              <Description>"Spikes"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>00FFFF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Activation64.dll"+0014b2a8</Address>
+              <Offsets>
+                <Offset>5d0</Offset>
+                <Offset>310</Offset>
+                <Offset>c8</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>18</ID>
+              <Description>"Turbo"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>00FFFF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"activation64.dll"+0014b2a8</Address>
+              <Offsets>
+                <Offset>5d8</Offset>
+                <Offset>310</Offset>
+                <Offset>c8</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>131</ID>
+          <Description>"Cop"</Description>
+          <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>54</ID>
+              <Description>"EMP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>FFFF00</Color>
+              <VariableType>Byte</VariableType>
+              <Address>"Activation64.dll"+0014B2A8</Address>
+              <Offsets>
+                <Offset>5cc</Offset>
+                <Offset>310</Offset>
+                <Offset>c8</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>59</ID>
+              <Description>"Spikes"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>FFFF00</Color>
+              <VariableType>Byte</VariableType>
+              <Address>"Activation64.dll"+0014B2A8</Address>
+              <Offsets>
+                <Offset>5d4</Offset>
+                <Offset>310</Offset>
+                <Offset>c8</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>55</ID>
+              <Description>"Roadblocks"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>FFFF00</Color>
+              <VariableType>Byte</VariableType>
+              <Address>"Activation64.dll"+0014B2A8</Address>
+              <Offsets>
+                <Offset>5e8</Offset>
+                <Offset>310</Offset>
+                <Offset>c8</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>60</ID>
+              <Description>"Heli"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>FFFF00</Color>
+              <VariableType>Byte</VariableType>
+              <Address>"Activation64.dll"+0014B2A8</Address>
+              <Offsets>
+                <Offset>5c8</Offset>
+                <Offset>310</Offset>
+                <Offset>c8</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>129</ID>
+          <Description>"Weapon delay"</Description>
+          <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <Color>40FF00</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>133</ID>
+              <Description>"Racer"</Description>
+              <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>50</ID>
+                  <Description>"EMPs"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>00FFFF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>"Activation64.dll"+0014B2A8</Address>
+                  <Offsets>
+                    <Offset>3f0</Offset>
+                    <Offset>310</Offset>
+                    <Offset>c8</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>52</ID>
+                  <Description>"Jammers"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>00FFFF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>"Activation64.dll"+0014B2A8</Address>
+                  <Offsets>
+                    <Offset>3f8</Offset>
+                    <Offset>310</Offset>
+                    <Offset>c8</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>51</ID>
+                  <Description>"Spikes"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>00FFFF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>"Activation64.dll"+0014B2A8</Address>
+                  <Offsets>
+                    <Offset>3e4</Offset>
+                    <Offset>310</Offset>
+                    <Offset>c8</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>53</ID>
+                  <Description>"Turbo"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>00FFFF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>"Activation64.dll"+0014B2A8</Address>
+                  <Offsets>
+                    <Offset>3ec</Offset>
+                    <Offset>310</Offset>
+                    <Offset>c8</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>134</ID>
+              <Description>"Cop"</Description>
+              <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>64</ID>
+                  <Description>"Spikes"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>FFFF00</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>"Activation64.dll"+0014B2A8</Address>
+                  <Offsets>
+                    <Offset>3e8</Offset>
+                    <Offset>310</Offset>
+                    <Offset>c8</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>70</ID>
+                  <Description>"Roadblocks"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>FFFF00</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>"Activation64.dll"+0014B2A8</Address>
+                  <Offsets>
+                    <Offset>3fc</Offset>
+                    <Offset>310</Offset>
+                    <Offset>c8</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>63</ID>
+                  <Description>"EMPs"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>FFFF00</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>"Activation64.dll"+0014B2A8</Address>
+                  <Offsets>
+                    <Offset>3e0</Offset>
+                    <Offset>310</Offset>
+                    <Offset>c8</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>71</ID>
+                  <Description>"Helis"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>FFFF00</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>"Activation64.dll"+0014B2A8</Address>
+                  <Offsets>
+                    <Offset>3dc</Offset>
+                    <Offset>310</Offset>
+                    <Offset>c8</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
